@@ -1,5 +1,5 @@
 
-# Jacobian Profiling
+# Jacobian Benchmarking
 
 ## Scope
 This project is about a performance investigation on different possible Jacobian function implementations  in sympy. The ultimate goal is to implement one of these functions in the sympy library. This would be very useful when linearizing equations of motion in dynamic sytems.
@@ -8,8 +8,8 @@ This project is about a performance investigation on different possible Jacobian
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/ricdigi/jacobian_profiling.git
-    cd jacobian_profiling
+    git clone https://github.com/ricdigi/jacobian_benchmark.git
+    cd jacobian_benchmark
     ```
 
 2. Install dependencies:
@@ -20,7 +20,7 @@ This project is about a performance investigation on different possible Jacobian
 ## Directory Structure
 
 ``` 
-jacobian_profiling/
+jacobian_benchamrk/
 │
 ├── implementations/
 │   ├── __init__.py
@@ -54,9 +54,10 @@ jacobian_profiling/
 
 ## Usage
 
-Run the main script to profile the implementations:
+Run the main script to benchmark the implementations:
 ```sh
 python main.py
 ```
 
-Results will be stored in the `data` directory.
+The benchmark at the moment tests the performance of the implementations for increasing dimensions of the dynamical system.
+The system used is the n_link_pendulum_on_cart from sympy models.py. Results will be stored in the `data` directory.

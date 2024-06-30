@@ -1,4 +1,4 @@
-from profiling.profiler import run_profiling
+from benchamrk.benchmark import run_benchmark
 
 
-run_profiling(num_runs=10, sizes=tuple(range(1, 5)))
+run_benchmark(num_runs=10, sizes=tuple(range(1, 5)))

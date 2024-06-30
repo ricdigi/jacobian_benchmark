@@ -3,7 +3,7 @@ from sympy.core import cache
 
 def clear_sympy_cache():
     """
-    Clears the sympy cache to ensure that the cache does not affect the profiling results.
+    Clears the sympy cache to ensure that the cache does not affect the benchamrk results.
     """
     cache.clear_cache()
 

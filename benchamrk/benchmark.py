@@ -1,7 +1,7 @@
 import time
 import json
 
-from profiling.utils import clear_sympy_cache, warm_up_function
+from benchamrk.utils import clear_sympy_cache, warm_up_function
 from sympy.physics.mechanics.models import n_link_pendulum_on_cart
 from sympy import ImmutableDenseMatrix, Symbol
 from sympy.physics.mechanics import dynamicsymbols
@@ -27,7 +27,7 @@ def time_function(func, *args, **kwargs):
 
 def save_results_to_json(data, filename='data/results.json'):
     """
-    Save profiling results to a JSON file.
+    Save benchamrk results to a JSON file.
     """
 
     try:
@@ -42,9 +42,9 @@ def save_results_to_json(data, filename='data/results.json'):
         json.dump(results, f, indent=4)
 
 
-def run_profiling(num_runs=10, sizes=tuple(range(1, 5))):
+def run_benchmark(num_runs=10, sizes=tuple(range(1, 5))):
     """
-    Profile different Jacobian implementations using the given number of runs and input sizes.
+    Benchmark different Jacobian implementations using the given number of runs and input sizes.
     """
 
     implementations = {
