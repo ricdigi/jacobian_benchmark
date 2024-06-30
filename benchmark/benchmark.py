@@ -1,7 +1,7 @@
 import time
 import json
 
-from benchamrk.utils import clear_sympy_cache, warm_up_function
+from benchmark.utils import clear_sympy_cache, warm_up_function
 from sympy.physics.mechanics.models import n_link_pendulum_on_cart
 from sympy import ImmutableDenseMatrix, Symbol
 from sympy.physics.mechanics import dynamicsymbols
@@ -27,7 +27,7 @@ def time_function(func, *args, **kwargs):
 
 def save_results_to_json(data, filename='data/results.json'):
     """
-    Save benchamrk results to a JSON file.
+    Save benchmark results to a JSON file.
     """
 
     try:
