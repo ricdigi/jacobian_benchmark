@@ -1,0 +1,458 @@
+[
+    {
+        "implementation": "forward_jacobian_ric",
+        "input_size": 2,
+        "total_time": 0.03664290409999995
+    },
+    {
+        "implementation": "jacobian_classic",
+        "input_size": 2,
+        "total_time": 0.029359444300000082
+    },
+    {
+        "implementation": "forward_jacobian_ric",
+        "input_size": 3,
+        "total_time": 0.1417787034999999
+    },
+    {
+        "implementation": "jacobian_classic",
+        "input_size": 3,
+        "total_time": 0.13226753150000006
+    },
+    {
+        "implementation": "forward_jacobian_ric",
+        "input_size": 4,
+        "total_time": 0.27352047469999974
+    },
+    {
+        "implementation": "jacobian_classic",
+        "input_size": 4,
+        "total_time": 0.3447756557999998
+    },
+    {
+        "implementation": "forward_jacobian_ric",
+        "input_size": 5,
+        "total_time": 0.5245044552
+    },
+    {
+        "implementation": "jacobian_classic",
+        "input_size": 5,
+        "total_time": 0.7049895374999998
+    },
+    {
+        "implementation": "jacobian_classic",
+        "input_size": 2,
+        "total_time": 0.04133091009999994
+    },
+    {
+        "implementation": "forward_jacobian_ric",
+        "input_size": 2,
+        "total_time": 0.038818161700000034
+    },
+    {
+        "implementation": "jacobian_protosym",
+        "input_size": 2,
+        "total_time": 0.005560208599999994
+    },
+    {
+        "implementation": "jacobian_symengine",
+        "input_size": 2,
+        "total_time": 0.0017645866000000066
+    },
+    {
+        "implementation": "jacobian_classic",
+        "input_size": 3,
+        "total_time": 0.13970051800000002
+    },
+    {
+        "implementation": "forward_jacobian_ric",
+        "input_size": 3,
+        "total_time": 0.12073813050000001
+    },
+    {
+        "implementation": "jacobian_protosym",
+        "input_size": 3,
+        "total_time": 0.018293568599999775
+    },
+    {
+        "implementation": "jacobian_symengine",
+        "input_size": 3,
+        "total_time": 0.007239561500000047
+    },
+    {
+        "implementation": "jacobian_classic",
+        "input_size": 4,
+        "total_time": 0.3231772063
+    },
+    {
+        "implementation": "forward_jacobian_ric",
+        "input_size": 4,
+        "total_time": 0.2717785700999997
+    },
+    {
+        "implementation": "jacobian_protosym",
+        "input_size": 4,
+        "total_time": 0.04054623349999993
+    },
+    {
+        "implementation": "jacobian_symengine",
+        "input_size": 4,
+        "total_time": 0.016657485300000018
+    },
+    {
+        "implementation": "jacobian_classic",
+        "input_size": 5,
+        "total_time": 0.6869119003999999
+    },
+    {
+        "implementation": "forward_jacobian_ric",
+        "input_size": 5,
+        "total_time": 0.5173584424000002
+    },
+    {
+        "implementation": "jacobian_protosym",
+        "input_size": 5,
+        "total_time": 0.07766623670000072
+    },
+    {
+        "implementation": "jacobian_symengine",
+        "input_size": 5,
+        "total_time": 0.03564092569999886
+    },
+    {
+        "implementation": "jacobian_classic",
+        "input_size": 2,
+        "wrt_size": 7,
+        "total_time": 0.02989034709999998
+    },
+    {
+        "implementation": "forward_jacobian_ric",
+        "input_size": 2,
+        "wrt_size": 7,
+        "total_time": 0.05183788259999993
+    },
+    {
+        "implementation": "jacobian_protosym",
+        "input_size": 2,
+        "wrt_size": 7,
+        "total_time": 0.005408609299999911
+    },
+    {
+        "implementation": "jacobian_symengine",
+        "input_size": 2,
+        "wrt_size": 7,
+        "total_time": 0.0016775711000000192
+    },
+    {
+        "implementation": "jacobian_classic",
+        "input_size": 3,
+        "wrt_size": 11,
+        "total_time": 0.14697641630000008
+    },
+    {
+        "implementation": "forward_jacobian_ric",
+        "input_size": 3,
+        "wrt_size": 11,
+        "total_time": 0.1330321529000001
+    },
+    {
+        "implementation": "jacobian_protosym",
+        "input_size": 3,
+        "wrt_size": 11,
+        "total_time": 0.01886753669999992
+    },
+    {
+        "implementation": "jacobian_symengine",
+        "input_size": 3,
+        "wrt_size": 11,
+        "total_time": 0.006654363700000232
+    },
+    {
+        "implementation": "jacobian_classic",
+        "input_size": 4,
+        "wrt_size": 15,
+        "total_time": 0.35586898320000027
+    },
+    {
+        "implementation": "forward_jacobian_ric",
+        "input_size": 4,
+        "wrt_size": 15,
+        "total_time": 0.2933202843
+    },
+    {
+        "implementation": "jacobian_protosym",
+        "input_size": 4,
+        "wrt_size": 15,
+        "total_time": 0.040299421099999753
+    },
+    {
+        "implementation": "jacobian_symengine",
+        "input_size": 4,
+        "wrt_size": 15,
+        "total_time": 0.01722547790000064
+    },
+    {
+        "implementation": "jacobian_classic",
+        "input_size": 5,
+        "wrt_size": 19,
+        "total_time": 0.7320074057999992
+    },
+    {
+        "implementation": "forward_jacobian_ric",
+        "input_size": 5,
+        "wrt_size": 19,
+        "total_time": 0.7329899943999998
+    },
+    {
+        "implementation": "jacobian_protosym",
+        "input_size": 5,
+        "wrt_size": 19,
+        "total_time": 0.09756088209999944
+    },
+    {
+        "implementation": "jacobian_symengine",
+        "input_size": 5,
+        "wrt_size": 19,
+        "total_time": 0.041996720099999864
+    },
+    {
+        "implementation": "jacobian_classic",
+        "input_size": 2,
+        "wrt_size": 7,
+        "total_time": 0.040412049900000066
+    },
+    {
+        "implementation": "forward_jacobian_ric",
+        "input_size": 2,
+        "wrt_size": 7,
+        "total_time": 0.03923087000000001
+    },
+    {
+        "implementation": "forward_jacobian_sam",
+        "input_size": 2,
+        "wrt_size": 7,
+        "total_time": 0.04330194799999996
+    },
+    {
+        "implementation": "jacobian_protosym",
+        "input_size": 2,
+        "wrt_size": 7,
+        "total_time": 0.005153366899999945
+    },
+    {
+        "implementation": "jacobian_symengine",
+        "input_size": 2,
+        "wrt_size": 7,
+        "total_time": 0.0027263410000000652
+    },
+    {
+        "implementation": "jacobian_classic",
+        "input_size": 3,
+        "wrt_size": 11,
+        "total_time": 0.13467482949999993
+    },
+    {
+        "implementation": "forward_jacobian_ric",
+        "input_size": 3,
+        "wrt_size": 11,
+        "total_time": 0.12838625960000005
+    },
+    {
+        "implementation": "forward_jacobian_sam",
+        "input_size": 3,
+        "wrt_size": 11,
+        "total_time": 0.154709453
+    },
+    {
+        "implementation": "jacobian_protosym",
+        "input_size": 3,
+        "wrt_size": 11,
+        "total_time": 0.017148167600000264
+    },
+    {
+        "implementation": "jacobian_symengine",
+        "input_size": 3,
+        "wrt_size": 11,
+        "total_time": 0.007477109399999904
+    },
+    {
+        "implementation": "jacobian_classic",
+        "input_size": 4,
+        "wrt_size": 15,
+        "total_time": 0.34132455609999984
+    },
+    {
+        "implementation": "forward_jacobian_ric",
+        "input_size": 4,
+        "wrt_size": 15,
+        "total_time": 0.2826751708000005
+    },
+    {
+        "implementation": "forward_jacobian_sam",
+        "input_size": 4,
+        "wrt_size": 15,
+        "total_time": 0.32757881289999985
+    },
+    {
+        "implementation": "jacobian_protosym",
+        "input_size": 4,
+        "wrt_size": 15,
+        "total_time": 0.04453458450000021
+    },
+    {
+        "implementation": "jacobian_symengine",
+        "input_size": 4,
+        "wrt_size": 15,
+        "total_time": 0.017660669699999687
+    },
+    {
+        "implementation": "jacobian_classic",
+        "input_size": 5,
+        "wrt_size": 19,
+        "total_time": 0.7176144383999994
+    },
+    {
+        "implementation": "forward_jacobian_ric",
+        "input_size": 5,
+        "wrt_size": 19,
+        "total_time": 0.5339218993999992
+    },
+    {
+        "implementation": "forward_jacobian_sam",
+        "input_size": 5,
+        "wrt_size": 19,
+        "total_time": 0.5886380781
+    },
+    {
+        "implementation": "jacobian_protosym",
+        "input_size": 5,
+        "wrt_size": 19,
+        "total_time": 0.08355923630000177
+    },
+    {
+        "implementation": "jacobian_symengine",
+        "input_size": 5,
+        "wrt_size": 19,
+        "total_time": 0.04130347370000109
+    },
+    {
+        "implementation": "jacobian_classic",
+        "input_size": 2,
+        "wrt_size": 7,
+        "total_time": 0.028137989900000004
+    },
+    {
+        "implementation": "forward_jacobian_ric",
+        "input_size": 2,
+        "wrt_size": 7,
+        "total_time": 0.03639005780000006
+    },
+    {
+        "implementation": "forward_jacobian_sam",
+        "input_size": 2,
+        "wrt_size": 7,
+        "total_time": 0.04184066200000012
+    },
+    {
+        "implementation": "jacobian_protosym",
+        "input_size": 2,
+        "wrt_size": 7,
+        "total_time": 0.005163906799999962
+    },
+    {
+        "implementation": "jacobian_symengine",
+        "input_size": 2,
+        "wrt_size": 7,
+        "total_time": 0.0017828558000000162
+    },
+    {
+        "implementation": "jacobian_classic",
+        "input_size": 3,
+        "wrt_size": 11,
+        "total_time": 0.13346413809999996
+    },
+    {
+        "implementation": "forward_jacobian_ric",
+        "input_size": 3,
+        "wrt_size": 11,
+        "total_time": 0.15702720370000006
+    },
+    {
+        "implementation": "forward_jacobian_sam",
+        "input_size": 3,
+        "wrt_size": 11,
+        "total_time": 0.15589632550000002
+    },
+    {
+        "implementation": "jacobian_protosym",
+        "input_size": 3,
+        "wrt_size": 11,
+        "total_time": 0.01948771899999997
+    },
+    {
+        "implementation": "jacobian_symengine",
+        "input_size": 3,
+        "wrt_size": 11,
+        "total_time": 0.007804634300000224
+    },
+    {
+        "implementation": "jacobian_classic",
+        "input_size": 4,
+        "wrt_size": 15,
+        "total_time": 0.3476383303
+    },
+    {
+        "implementation": "forward_jacobian_ric",
+        "input_size": 4,
+        "wrt_size": 15,
+        "total_time": 0.27822549489999987
+    },
+    {
+        "implementation": "forward_jacobian_sam",
+        "input_size": 4,
+        "wrt_size": 15,
+        "total_time": 0.31038322120000006
+    },
+    {
+        "implementation": "jacobian_protosym",
+        "input_size": 4,
+        "wrt_size": 15,
+        "total_time": 0.04038001340000008
+    },
+    {
+        "implementation": "jacobian_symengine",
+        "input_size": 4,
+        "wrt_size": 15,
+        "total_time": 0.017026847999999716
+    },
+    {
+        "implementation": "jacobian_classic",
+        "input_size": 5,
+        "wrt_size": 19,
+        "total_time": 0.7114655619000004
+    },
+    {
+        "implementation": "forward_jacobian_ric",
+        "input_size": 5,
+        "wrt_size": 19,
+        "total_time": 0.5336414920999996
+    },
+    {
+        "implementation": "forward_jacobian_sam",
+        "input_size": 5,
+        "wrt_size": 19,
+        "total_time": 0.5798075766000004
+    },
+    {
+        "implementation": "jacobian_protosym",
+        "input_size": 5,
+        "wrt_size": 19,
+        "total_time": 0.07935872849999867
+    },
+    {
+        "implementation": "jacobian_symengine",
+        "input_size": 5,
+        "wrt_size": 19,
+        "total_time": 0.03818790360000009
+    }
+]
