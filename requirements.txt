@@ -3,3 +3,6 @@ sympy
 symengine
 protosym
 pytest
+pandas
+matplotlib
+seaborn
