@@ -20,11 +20,12 @@ This project is about a performance investigation on different possible Jacobian
 ## Directory Structure
 
 ``` 
-jacobian_benchamrk/
+jacobian_benchmark/
 │
 ├── implementations/
 │   ├── __init__.py
 │   ├── forward_jacobian_ric.py     # @ricdigi's implementation
+│   ├── forward_jacobian_ric2.py     # @ricdigi's 2 implementation  
 │   ├── forward_jacobian_sam.py     # @brocksam's implementation
 │   ├── jacobian_classic.py         # Classic sympy jacobian
 │   ├── jacobian_protosym.py        # protosym based jacobian
@@ -36,18 +37,20 @@ jacobian_benchamrk/
 │   ├── conftest.py                 # Configuration file for pytest
 │ 
 │   
-├── profiling/
-│   ├── __init__.py        # Initialization file for profiling package
-│   ├── profiler.py        # Main profiling logic
+├── benchmark/
+│   ├── __init__.py        # Initialization file for benchmark package
+│   ├── benchmark.py       # Main benchmark logic
+│   ├── models.py          # Collection of dynamical systems models
 │   ├── utils.py           # Utility functions for profiling
-│   
 │
 ├── data/
-│   ├── results.json         # Database for storing profiling results
+│   ├── results_pendulum.json  # File for storing pendulum benchmark results
+│   ├── results_bicycle.json  # File for storing bicycle benchmark results
 │   
 │
 ├── requirements.txt       # List of dependencies
 ├── README.md              # Project documentation
+├── plotting.py            # Plotting pendulum benchmark results
 └── main.py                # Main script to run profiling
 ```
 
