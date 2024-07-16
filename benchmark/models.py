@@ -1,7 +1,7 @@
 
 from sympy.core.symbol import symbols
 from sympy.physics.mechanics.models import n_link_pendulum_on_cart
-from sympy import ImmutableDenseMatrix, Symbol
+from sympy import ImmutableDenseMatrix, Symbol, Function, Derivative
 from sympy.physics.mechanics import (ReferenceFrame, dynamicsymbols,
                                      KanesMethod, inertia, Point, RigidBody,
                                      dot)
@@ -215,7 +215,25 @@ def generate_input_bicycle():
 
     # Substitute dynamicsymbols with regular symbols for consistency
     new_symbols = {symbol: Symbol(f'f{i + 1}') for i, symbol in enumerate(wrt)}
-    expr = expr.subs(new_symbols)
-    wrt = wrt.subs(new_symbols)
+    #expr = expr.subs(new_symbols)
+    #wrt = wrt.subs(new_symbols)
+    wrt2 = ImmutableDenseMatrix(list(expr.free_symbols - set(wrt)))
+    wrt = ImmutableDenseMatrix.vstack(wrt, wrt2)
+
+    return expr, wrt
+
+
+def derivative_example():
+    # Define the symbols
+    x = Symbol('x')
+    y = Symbol('y')
+    z = Symbol('z')
+
+    # Define the custom functions
+    k = Function('k')(x, y)
+    f = Function('f')(k, z)
+
+    expr = ImmutableDenseMatrix([Derivative(f + k, x) + k ])
+    wrt = ImmutableDenseMatrix([x])
 
     return expr, wrt

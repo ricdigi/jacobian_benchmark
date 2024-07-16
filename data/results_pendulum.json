@@ -394,5 +394,233 @@
         "input_size": 12,
         "wrt_size": 47,
         "total_time": 5.955217492500003
+    },
+    {
+        "implementation": "jacobian_classic",
+        "input_size": 2,
+        "wrt_size": 7,
+        "total_time": 0.045101871900000035
+    },
+    {
+        "implementation": "forward_jacobian_ric",
+        "input_size": 2,
+        "wrt_size": 7,
+        "total_time": 0.08495752009999986
+    },
+    {
+        "implementation": "forward_jacobian_ric2",
+        "input_size": 2,
+        "wrt_size": 7,
+        "total_time": 0.10468371279999991
+    },
+    {
+        "implementation": "forward_jacobian_sam",
+        "input_size": 2,
+        "wrt_size": 7,
+        "total_time": 0.12976911749999998
+    },
+    {
+        "implementation": "jacobian_protosym",
+        "input_size": 2,
+        "wrt_size": 7,
+        "total_time": 0.009272673200000182
+    },
+    {
+        "implementation": "jacobian_symengine",
+        "input_size": 2,
+        "wrt_size": 7,
+        "total_time": 0.003373742199999974
+    },
+    {
+        "implementation": "jacobian_classic",
+        "input_size": 3,
+        "wrt_size": 11,
+        "total_time": 0.23357576120000045
+    },
+    {
+        "implementation": "forward_jacobian_ric",
+        "input_size": 3,
+        "wrt_size": 11,
+        "total_time": 0.24762564309999996
+    },
+    {
+        "implementation": "jacobian_classic",
+        "input_size": 11,
+        "wrt_size": 43,
+        "total_time": 8.253267926999996
+    },
+    {
+        "implementation": "forward_jacobian_ric",
+        "input_size": 11,
+        "wrt_size": 43,
+        "total_time": 11.428106748999994
+    },
+    {
+        "implementation": "forward_jacobian_ric2",
+        "input_size": 11,
+        "wrt_size": 43,
+        "total_time": 4.494105536999996
+    },
+    {
+        "implementation": "forward_jacobian_sam",
+        "input_size": 11,
+        "wrt_size": 43,
+        "total_time": 5.475338998999973
+    },
+    {
+        "implementation": "jacobian_protosym",
+        "input_size": 11,
+        "wrt_size": 43,
+        "total_time": 0.9363212480000129
+    },
+    {
+        "implementation": "jacobian_symengine",
+        "input_size": 11,
+        "wrt_size": 43,
+        "total_time": 0.4600689060000036
+    },
+    {
+        "implementation": "forward_jacobian_ric3",
+        "input_size": 2,
+        "wrt_size": 7,
+        "total_time": 0.08539340889999998
+    },
+    {
+        "implementation": "forward_jacobian_ric3",
+        "input_size": 3,
+        "wrt_size": 11,
+        "total_time": 0.12273133810000006
+    },
+    {
+        "implementation": "forward_jacobian_ric3",
+        "input_size": 4,
+        "wrt_size": 15,
+        "total_time": 0.26579337470000003
+    },
+    {
+        "implementation": "forward_jacobian_ric3",
+        "input_size": 5,
+        "wrt_size": 19,
+        "total_time": 0.4524610834999999
+    },
+    {
+        "implementation": "forward_jacobian_ric3",
+        "input_size": 6,
+        "wrt_size": 23,
+        "total_time": 0.7552286740999999
+    },
+    {
+        "implementation": "forward_jacobian_ric3",
+        "input_size": 7,
+        "wrt_size": 27,
+        "total_time": 1.1819721842
+    },
+    {
+        "implementation": "forward_jacobian_ric3",
+        "input_size": 8,
+        "wrt_size": 31,
+        "total_time": 1.7287915462
+    },
+    {
+        "implementation": "forward_jacobian_ric3",
+        "input_size": 9,
+        "wrt_size": 35,
+        "total_time": 2.407460892499999
+    },
+    {
+        "implementation": "forward_jacobian_ric3",
+        "input_size": 10,
+        "wrt_size": 39,
+        "total_time": 3.5573381538999995
+    },
+    {
+        "implementation": "forward_jacobian_ric3",
+        "input_size": 11,
+        "wrt_size": 43,
+        "total_time": 4.822588869799992
+    },
+    {
+        "implementation": "forward_jacobian_ric3",
+        "input_size": 12,
+        "wrt_size": 47,
+        "total_time": 5.720518099200007
+    },
+    {
+        "implementation": "forward_jacobian_ric3",
+        "input_size": 13,
+        "wrt_size": 51,
+        "total_time": 7.152156535899996
+    },
+    {
+        "implementation": "forward_jacobian_ric3",
+        "input_size": 11,
+        "wrt_size": 43,
+        "total_time": 4.512173278000002
+    },
+    {
+        "implementation": "forward_jacobian_ric3",
+        "input_size": 11,
+        "wrt_size": 43,
+        "total_time": 4.744870261999999
+    },
+    {
+        "implementation": "forward_jacobian_ric4",
+        "input_size": 2,
+        "wrt_size": 7,
+        "total_time": 0.059711406999999994
+    },
+    {
+        "implementation": "forward_jacobian_ric4",
+        "input_size": 3,
+        "wrt_size": 11,
+        "total_time": 0.11970756699999985
+    },
+    {
+        "implementation": "forward_jacobian_ric4",
+        "input_size": 4,
+        "wrt_size": 15,
+        "total_time": 0.24666158199999977
+    },
+    {
+        "implementation": "forward_jacobian_ric4",
+        "input_size": 5,
+        "wrt_size": 19,
+        "total_time": 0.4614127340000005
+    },
+    {
+        "implementation": "forward_jacobian_ric4",
+        "input_size": 6,
+        "wrt_size": 23,
+        "total_time": 0.7640334639999988
+    },
+    {
+        "implementation": "forward_jacobian_ric4",
+        "input_size": 7,
+        "wrt_size": 27,
+        "total_time": 1.1907111290000003
+    },
+    {
+        "implementation": "forward_jacobian_ric4",
+        "input_size": 8,
+        "wrt_size": 31,
+        "total_time": 1.7485695389999982
+    },
+    {
+        "implementation": "forward_jacobian_ric4",
+        "input_size": 9,
+        "wrt_size": 35,
+        "total_time": 2.5571324160000017
+    },
+    {
+        "implementation": "forward_jacobian_ric4",
+        "input_size": 10,
+        "wrt_size": 39,
+        "total_time": 3.4573078179999897
+    },
+    {
+        "implementation": "forward_jacobian_ric4",
+        "input_size": 11,
+        "wrt_size": 43,
+        "total_time": 4.689194794000002
     }
 ]

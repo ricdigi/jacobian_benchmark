@@ -6,6 +6,8 @@ from benchmark.models import generate_input_pendulum, generate_input_bicycle
 
 from implementations.forward_jacobian_ric import forward_jacobian_ric
 from implementations.forward_jacobian_ric2 import forward_jacobian_ric2
+from implementations.forward_jacobian_ric3 import forward_jacobian_ric3
+from implementations.forward_jacobian_ric4 import forward_jacobian_ric4
 from implementations.forward_jacobian_sam import forward_jacobian_sam
 from implementations.jacobian_classic import jacobian_classic
 from implementations.jacobian_protosym import jacobian_protosym
@@ -47,12 +49,14 @@ def run_benchmark_pendulum(num_runs=10, sizes=tuple(range(1, 5))):
     """
 
     implementations = {
-        'jacobian_classic': jacobian_classic,
-        'forward_jacobian_ric': forward_jacobian_ric,
-        'forward_jacobian_ric2': forward_jacobian_ric2,
-        'forward_jacobian_sam': forward_jacobian_sam,
-        'jacobian_protosym': jacobian_protosym,
-        'jacobian_symengine': jacobian_symengine
+        #'jacobian_classic': jacobian_classic,
+        #'forward_jacobian_ric': forward_jacobian_ric,
+        #'forward_jacobian_ric2': forward_jacobian_ric2,
+        #'forward_jacobian_ric3': forward_jacobian_ric3,
+        'forward_jacobian_ric4': forward_jacobian_ric4,
+        #'forward_jacobian_sam': forward_jacobian_sam,
+        #'jacobian_protosym': jacobian_protosym,
+        #'jacobian_symengine': jacobian_symengine
     }
 
     for size in sizes:
@@ -92,9 +96,11 @@ def run_benchmark_bicycle(num_runs=10):
         #'jacobian_classic': jacobian_classic,
         #'forward_jacobian_ric': forward_jacobian_ric,
         #'forward_jacobian_ric2': forward_jacobian_ric2,
+        #'forward_jacobian_ric3': forward_jacobian_ric3,
+        'forward_jacobian_ric4': forward_jacobian_ric4,
         #'forward_jacobian_sam': forward_jacobian_sam,
         #'jacobian_protosym': jacobian_protosym,
-        'jacobian_symengine': jacobian_symengine
+        #'jacobian_symengine': jacobian_symengine
     }
 
 
