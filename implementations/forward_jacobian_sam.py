@@ -74,7 +74,7 @@ def forward_jacobian_sam(
         elif not node.free_symbols:
             return node, node
 
-        # Added by ricdigi to work with dynamicsymbols
+        # Modification to manage dynamicsymbols
         elif node == dynamicsymbols._t:
             return node, node
 
@@ -101,13 +101,11 @@ def forward_jacobian_sam(
         raise NotImplementedError(msg)
 
     symbols = expr.free_symbols
-
     replacement_symbols = numbered_symbols(
         prefix='_z',
         cls=Symbol,
-        exclude = expr.free_symbols,
+        exclude=expr.free_symbols,
     )
-
 
     expr_to_replacement_cache = {}
     replacement_to_reduced_expr_cache = {}
@@ -139,6 +137,11 @@ def forward_jacobian_sam(
         for free_symbol in free_symbols:
             replacement_symbol, partial_derivative = add_to_cache(subexpr.diff(free_symbol))
             absolute_derivative += partial_derivative * absolute_derivative_mapping.get(free_symbol, zeros)
+
+        # Modification to manage dynamicsymbols
+        if free_symbols == {dynamicsymbols._t}:
+            absolute_derivative_mapping[symbol] = ImmutableDenseMatrix([[subexpr.diff(sub) for sub in wrt]])
+            continue
         absolute_derivative_mapping[symbol] = ImmutableDenseMatrix([[add_to_cache(a)[0] for a in absolute_derivative]])
 
     replaced_jacobian = ImmutableDenseMatrix.vstack(*[absolute_derivative_mapping.get(e, ImmutableDenseMatrix.zeros(*wrt.shape).T) for e in reduced_matrix])
@@ -179,12 +182,9 @@ def forward_jacobian_sam(
     sub_dict = {}
     for rep_sym, sub in required_replacements.items():
         fs = sub.free_symbols - symbols
-
         for sym in fs:
             sub_dict[sym] = required_replacements[sym]
-
         required_replacements[rep_sym] = required_replacements[rep_sym].xreplace(sub_dict)
         sub_dict = {}
-
 
     return reduced_exprs.xreplace(required_replacements)

@@ -1,4 +1,4 @@
-from sympy import cse, Matrix, SparseMatrix
+from sympy import cse, Matrix, SparseMatrix, Function
 from collections import Counter
 
 
@@ -12,7 +12,12 @@ def dok_matrix_multiply(A, B):
 
 
 def forward_jacobian_ric3(expr, wrt):
-    replacements, reduced_expr = cse(expr)
+    # Have both wrt and expr in the cse operation
+    concatenated = Matrix.vstack(expr, wrt)
+    replacements, reduced_concatenated = cse(concatenated)
+
+    reduced_expr = [reduced_concatenated[0][:expr.shape[0], :]]
+    wrt = reduced_concatenated[0][expr.shape[0]:, :]
 
     if replacements:
         rep_sym, sub_expr = map(Matrix, zip(*replacements))
@@ -62,7 +67,7 @@ def forward_jacobian_ric3(expr, wrt):
     for (i, j), value in f1.items():
         J[(i, j)] += value
 
-    sub_rep = {rep_sym: sub_expr for rep_sym, sub_expr in replacements}
+    sub_rep = dict(replacements)
     for i, ik in enumerate(precomputed_fs):
         sub_dict = {j: sub_rep[j] for j in ik}
         sub_rep[rep_sym[i]] = sub_rep[rep_sym[i]].xreplace(sub_dict)

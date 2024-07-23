@@ -1,4 +1,6 @@
-from sympy import cse, Matrix, SparseMatrix, Derivative
+"""Module for differentiation using CSE."""
+
+from sympy import cse, Matrix, SparseMatrix, Derivative, MatrixBase
 from collections import Counter
 
 
@@ -10,7 +12,7 @@ def postprocess(repl, reduced):
     repl_dict = dict(repl)
 
     p_repl = [(rep_sym, traverse(sub_exp, repl_dict)) for rep_sym, sub_exp in repl]
-    p_reduced = [traverse(red_exp, repl_dict) for red_exp in reduced]
+    p_reduced = [Matrix([traverse(exp, repl_dict) for exp in red_exp]) for red_exp in reduced]
 
     return p_repl, p_reduced
 
@@ -60,11 +62,72 @@ def dok_matrix_multiply(A, B):
 
 
 def forward_jacobian_ric4(expr, wrt):
+    """
+        Returns the Jacobian matrix produced using a forward accumulation
+        algorithm.
+
+        Explanation
+        ===========
+
+        Expressions often contain repeated subexpressions. If and expression is
+        represented as a tree structure then multiple copies of these subexpressions
+        will be present in the expanded form of the expression. During
+        differentiation these repeated subexpressions will be repeatedly and
+        differentiated multiple times, resulting in repeated and wasted work.
+
+        Instead, if a data structure called a directed acyclic graph (DAG) is used
+        then each of these repeated subexpressions will only exist a single time.
+        This function uses a combination of representing the expression as a DAG and
+        a forward accumulation algorithm (repeated application of the chain rule
+        symbolically) to more efficiently calculate the Jacobian matrix of a target
+        expression ``expr`` with respect to an expression or set of expressions
+        ``wrt``.
+
+        Note that this function is intended to improve performance when
+        differentiating large expressions that contain many common subexpressions.
+        For small and simple expressions it is likely less performant than using
+        SymPy's standard differentiation functions and methods.
+
+        NOTE: When Derivative terms are present in the expression, the CSE output
+        is post-processed to remove any CSE replacement symbols from the arguments of those terms.
+        Thus, in that case some derivatives might be repeated.
+
+        Parameters
+        ==========
+
+        expr : Matrix
+            The vector to be differentiated.
+
+        wrt : Matrix, list, or tuple
+            The vector with respect to which to do the differentiation. Can be a matrix or an iterable of variables.
+
+        See Also
+        ========
+
+        Direct Acyclic Graph : https://en.wikipedia.org/wiki/Directed_acyclic_graph
+
+    """
+
+    # Check Inputs
+    if not isinstance(wrt, (MatrixBase, list, tuple)):
+        raise TypeError("``wrt`` must be an iterable of variables")
+
+    elif isinstance(wrt, (list, tuple)):
+        wrt = Matrix(wrt)
+
+    if not isinstance(expr, MatrixBase):
+        raise TypeError("``expr`` must be of matrix type")
+
+    # Both ``wrt`` and ``expr`` can be a row or a column matrix, so we need to make
+    # sure all valid combinations work, but everything else fails:
+    if not (expr.shape[0] == 1 or expr.shape[1] == 1):
+        raise TypeError("``expr`` must be a row or a column matrix")
+
+    if not (wrt.shape[0] == 1 or wrt.shape[1] == 1):
+        raise TypeError("``wrt`` must be a row or a column matrix")
 
     replacements, reduced_expr = cse(expr)
-    repl_dict = dict(replacements)
-
-    replacements, reduced_expr = postprocess(replacements, reduced_expr, repl_dict)
+    replacements, reduced_expr = postprocess(replacements, reduced_expr)
 
     if replacements:
         rep_sym, sub_expr = map(Matrix, zip(*replacements))
@@ -120,6 +183,6 @@ def forward_jacobian_ric4(expr, wrt):
         sub_rep[rep_sym[i]] = sub_rep[rep_sym[i]].xreplace(sub_dict)
 
     J = {key: expr.xreplace(sub_rep) for key, expr in J.items()}
-    J = SparseMatrix(None, J)
+    J = SparseMatrix(l_red, l_wrt, J)
 
     return J

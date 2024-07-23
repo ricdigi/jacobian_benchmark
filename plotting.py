@@ -17,8 +17,8 @@ def plot_performance(data):
     # Plot total times against input size
     plt.figure(figsize=(12, 6))
     sns.lineplot(data=df, x='input_size', y='total_time', hue='implementation', marker='o')
-    plt.title('Performance of Different Jacobian Implementations')
-    plt.xlabel('Input Size')
+    plt.title('Performance of Different Jacobian Implementations on the n_link_pendulum_on_cart model')
+    plt.xlabel('Input Size (n)')
     plt.ylabel('Total Time (s)')
     plt.legend(title='Implementation')
     plt.grid(True)

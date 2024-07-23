@@ -77,6 +77,7 @@ def test_forward_jacobian_ric4(setup_inputs):
     # Check that all Jacobians are the same
     assert diff == Matrix.zeros(*diff.shape)
 
+
 def test_ric4_derivative():
     expr, wrt = derivative_example()
 
