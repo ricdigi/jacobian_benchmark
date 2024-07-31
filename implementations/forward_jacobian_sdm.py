@@ -1,8 +1,8 @@
 from sympy import cse, Matrix, SparseMatrix
-from sympy.polys.matrices.sdm import SDM
+from sympy.polys.matrices.sdm import SDM, sdm_matmul_exraw
 from sympy import EXRAW
 
-def forward_jacobian_ric(expr, wrt):
+def forward_jacobian_sdm(expr, wrt):
     # CSE
     replacements, reduced_expr = cse(expr)
     rep_sym, sub_expr = map(Matrix, zip(*replacements))
@@ -28,13 +28,18 @@ def forward_jacobian_ric(expr, wrt):
         Ai = SDM.from_dok({(0, j): sub_expr[i].diff(w) for j, w in enumerate(wrt)
                            if sub_expr[i].diff(w) != 0}, (1, l_wrt), EXRAW)
 
-        Ci = Bi.matmul(C).add(Ai) if Bi else Ai
+        if Bi :
+            Ci = sdm_matmul_exraw(Bi, C, Bi.domain, 1, l_wrt)
+            Ci = Bi.new(Ci, (1, l_wrt), Bi.domain).add(Ai)
+        else:
+            Ci = Ai
 
         C.shape = (i + 1, l_wrt)
         if Ci: C[i] = Ci[0]
 
     # Differentiate step
-    Jsdm = f1.add(f2.matmul(C))
+    Jsdm = sdm_matmul_exraw(f2, C, f2.domain, f2.shape[0], C.shape[1])
+    Jsdm = f2.new(Jsdm, (f2.shape[0], C.shape[1]), f2.domain).add(f1)
 
     sub_rep = {rep_sym: sub_expr for rep_sym, sub_expr in replacements}
     for i, ik in enumerate(precomputed_fs):

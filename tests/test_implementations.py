@@ -3,10 +3,12 @@ from sympy import Matrix, simplify
 from benchmark.models import generate_input_pendulum
 from benchmark.models import derivative_example
 
-from implementations.forward_jacobian_ric import forward_jacobian_ric
+from implementations.forward_jacobian_final import forward_jacobian
+from implementations.forward_jacobian_sdm import forward_jacobian_sdm
 from implementations.forward_jacobian_ric2 import forward_jacobian_ric2
 from implementations.forward_jacobian_ric3 import forward_jacobian_ric3
 from implementations.forward_jacobian_ric4 import forward_jacobian_ric4
+from implementations.forward_jacobian_dense import _forward_jacobian_dense
 from implementations.forward_jacobian_sam import forward_jacobian_sam
 from implementations.jacobian_classic import jacobian_classic
 from implementations.jacobian_protosym import jacobian_protosym
@@ -17,12 +19,39 @@ from implementations.jacobian_symengine import jacobian_symengine
 def setup_inputs(n = 4):
     return generate_input_pendulum(n)
 
+def test_forward_jacobian_dense(setup_inputs):
+    expr, wrt = setup_inputs
+
+    # Compute the Jacobian using each implementation
+    jacobian_dense = _forward_jacobian_dense(expr, wrt)
+    jacobian_cla = jacobian_classic(expr, wrt)
+
+    diff = simplify(jacobian_dense - jacobian_cla)
+
+    print(diff)
+
+    # Check that all Jacobians are the same
+    assert diff == Matrix.zeros(*diff.shape)
+
+def test_forward_jacobian_final(setup_inputs):
+    expr, wrt = setup_inputs
+
+    # Compute the Jacobian using each implementation
+    jacobian_final = forward_jacobian(expr, wrt)
+    jacobian_cla = jacobian_classic(expr, wrt)
+
+    diff = simplify(jacobian_final - jacobian_cla)
+
+    print(diff)
+
+    # Check that all Jacobians are the same
+    assert diff == Matrix.zeros(*diff.shape)
 
 def test_forward_jacobian_ric(setup_inputs):
     expr, wrt = setup_inputs
 
     # Compute the Jacobian using each implementation
-    jacobian_ric = forward_jacobian_ric(expr, wrt)
+    jacobian_ric = forward_jacobian_sdm(expr, wrt)
     jacobian_cla = jacobian_classic(expr, wrt)
 
     diff = simplify(jacobian_ric - jacobian_cla)
