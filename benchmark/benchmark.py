@@ -5,7 +5,7 @@ from benchmark.utils import clear_sympy_cache, warm_up_function
 from benchmark.models import generate_input_pendulum, generate_input_bicycle, setup_bicycle, linearize_and_validate
 
 from implementations.forward_jacobian_sdm import forward_jacobian_sdm
-from implementations.forward_jacobian_dense import _forward_jacobian_dense
+from implementations.forward_jacobian_sdm_non_exraw import forward_jacobian_sdm_non_exraw
 from implementations.forward_jacobian_ric2 import forward_jacobian_ric2
 from implementations.forward_jacobian_ric3 import forward_jacobian_ric3
 from implementations.forward_jacobian_ric4 import forward_jacobian_ric4
@@ -56,7 +56,7 @@ def run_benchmark_pendulum(num_runs=10, sizes=tuple(range(1, 5))):
         #'forward_jacobian_ric2': forward_jacobian_ric2,
         #'forward_jacobian_ric3': forward_jacobian_ric3,
         #'forward_jacobian_ric4': forward_jacobian_ric4,
-        #'forward_jacobian_dense': _forward_jacobian_dense,
+        'forward_jacobian_sdm_non_exraw': forward_jacobian_sdm_non_exraw,
         'forward_jacobian_final': forward_jacobian,
         #'forward_jacobian_sam': forward_jacobian_sam,
         #'jacobian_protosym': jacobian_protosym,
@@ -99,10 +99,12 @@ def run_benchmark_bicycle(num_runs=10):
     implementations = {
         'jacobian_classic': jacobian_classic,
         'forward_jacobian_sdm': forward_jacobian_sdm,
+        'forward_jacobian_sdm_non_exraw': forward_jacobian_sdm_non_exraw,
         #'forward_jacobian_ric2': forward_jacobian_ric2,
         #'forward_jacobian_ric3': forward_jacobian_ric3,
         #'forward_jacobian_ric4': forward_jacobian_ric4,
         'forward_jacobian_final': forward_jacobian,
+
         #'forward_jacobian_sam': forward_jacobian_sam,
         #'jacobian_protosym': jacobian_protosym,
         #'jacobian_symengine': jacobian_symengine
@@ -146,6 +148,7 @@ def run_benchmark_linearize(num_runs=10):
         'jacobian_final': forward_jacobian,
         'jacobian_classic': jacobian_classic,
         'forward_jacobian_sdm': forward_jacobian_sdm,
+        'forward_jacobian_sdm_non_exraw': forward_jacobian_sdm_non_exraw,
     }
 
     for name, func in implementations.items():
